@@ -6,12 +6,14 @@ import { useEffect, useState } from 'react';
 import { getCompletedScreens, markScreenAsCompleted, isScreenLocked } from '@/lib/progress';
 import DynamicInput from './DynamicInput';
 import es from '../../content/es.json';
+import { useSession, signIn, signOut } from "next-auth/react";
 
 interface ScreenProps {
     screenId: string;
 }
 
 export default function Screen({ screenId }: ScreenProps) {
+    const { data: session } = useSession();
     const title = t(`${screenId}_TITLE`);
     const body = t(`${screenId}_BODY`);
     const ctaPrimary = t(`${screenId}_CTA_PRIMARY`);
@@ -113,6 +115,25 @@ export default function Screen({ screenId }: ScreenProps) {
                                 required={field.required}
                             />
                         ))}
+                    </div>
+                )}
+
+                {/* OAuth Button for ONB_003 */}
+                {screenId === 'ONB_003' && (
+                    <div className="mt-6">
+                        {!session ? (
+                            <button
+                                onClick={() => signIn('google')}
+                                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                            >
+                                <span className="mr-2">G</span> Conectar Google Drive
+                            </button>
+                        ) : (
+                            <div className="text-sm text-green-600 font-medium">
+                                ✓ Conectado como {session.user?.email}
+                                <button onClick={() => signOut()} className="ml-4 text-xs text-gray-500 underline">Desconectar</button>
+                            </div>
+                        )}
                     </div>
                 )}
 
