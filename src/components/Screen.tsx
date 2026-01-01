@@ -1,3 +1,5 @@
+'use client';
+
 import { t } from '@/lib/i18n';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -60,8 +62,8 @@ export default function Screen({ screenId }: ScreenProps) {
                     <button
                         onClick={toggleComplete}
                         className={`px-3 py-1 text-xs font-medium rounded-full border ${isCompleted
-                                ? 'bg-green-100 text-green-800 border-green-200'
-                                : 'bg-gray-100 text-gray-500 border-gray-200 hover:bg-gray-200'
+                            ? 'bg-green-100 text-green-800 border-green-200'
+                            : 'bg-gray-100 text-gray-500 border-gray-200 hover:bg-gray-200'
                             }`}
                     >
                         {isCompleted ? '✓ Completado' : 'Marcar como hecho'}

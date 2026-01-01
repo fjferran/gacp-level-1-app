@@ -1,6 +1,6 @@
 import Screen from '@/components/Screen';
 import WizardNav from '@/components/WizardNav';
-import { SCREEN_ORDER } from '../../../content/screens';
+import { SCREEN_ORDER } from '../../../../content/screens';
 
 export async function generateStaticParams() {
     return SCREEN_ORDER.map((id) => ({
