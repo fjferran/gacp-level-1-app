@@ -7,6 +7,14 @@ Esta guía detalla los pasos para desplegar la aplicación GACP Nivel 1 en un se
 1.  **Acceso SSH** al servidor VPS.
 2.  **Dominio** apuntando a la IP del servidor (registro A).
 
+## Estructura de la App (2 Niveles)
+La aplicación gestiona automáticamente los dos niveles solicitados bajo el mismo dominio:
+- **Nivel Gratuito**: Accesible en `https://tu-dominio.com/roadmap`
+- **Nivel Completo**: Accesible en `https://tu-dominio.com/screen/ONB_001` (requiere login)
+- **Landing Page**: `https://tu-dominio.com/` (redirige a ambos)
+
+No necesitas configurar subdominios separados. Next.js gestiona todo el enrutamiento.
+
 ## Paso 1: Preparar el Entorno
 
 Conéctate por SSH y actualiza el sistema:

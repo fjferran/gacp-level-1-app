@@ -1,0 +1,27 @@
+Para probar la aplicación en local, necesitas configurar las variables de entorno.
+
+1. Crea un archivo llamado `.env.local` en la raíz del proyecto (`gacp-level-1-app`).
+2. Copia y pega el siguiente contenido:
+
+```env
+# Google OAuth Credentials
+# Obtén estas credenciales en Google Cloud Console: https://console.cloud.google.com/
+# 1. Crea un proyecto
+# 2. Ve a APIs & Services > Credentials
+# 3. Crea OAuth Client ID (Web application)
+# 4. Añade http://localhost:3000/api/auth/callback/google a "Authorized redirect URIs"
+GOOGLE_CLIENT_ID=tu_client_id_aqui
+GOOGLE_CLIENT_SECRET=tu_client_secret_aqui
+
+# NextAuth Configuration
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=secret_para_desarrollo_local_123
+
+# Access Control (Whitelist)
+# Lista de correos separados por comas que tienen permiso para acceder
+ALLOWED_USERS=tu_email@gmail.com
+```
+
+3. Reemplaza `tu_client_id_aqui`, `tu_client_secret_aqui` y `tu_email@gmail.com` con tus datos reales.
+4. Guarda el archivo.
+5. Ejecuta `npm run dev` en la terminal.
