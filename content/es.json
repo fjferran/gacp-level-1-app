@@ -1,6 +1,6 @@
 {
   "LND_001_TITLE": "Implementa GACP Nivel 1 paso a paso (low-cost)",
-  "LND_001_BODY": "Digitaliza tus registros, crea trazabilidad por lote y prepárate para auditorías usando Google Drive, Sheets, Forms y QRs. Sin ERP. Sin programación.",
+  "LND_001_BODY": "Bienvenido a la formación práctica para la implementación de GACP (Buenas Prácticas de Cultivo y Recolección) Nivel 1.\\n\\nObjetivos de la formación:\\n1. Comprender los requisitos fundamentales de GACP.\\n2. Implementar paso a paso el sistema de calidad en tu cultivo.\\n3. Generar las evidencias documentales necesarias.\\n\\nEsta aplicación te guiará a través de 6 Sprints, desde la configuración inicial hasta la validación final. En cada paso, encontrarás explicaciones teóricas, listas de verificación y plantillas.\\n\\nPara comenzar, necesitarás configurar tu entorno de trabajo digital conectando tu cuenta de Google Drive, donde se crearán automáticamente las carpetas y documentos del sistema.",
   "LND_001_BULLETS": "• Registros desde el móvil con códigos QR\n• Integridad de datos (sin borrar + enmiendas)\n• Desvíos, CAPA y Recall Test incluidos",
   "LND_001_CTA_PRIMARY": "Empezar proyecto",
   "LND_001_CTA_SECONDARY": "Ver cómo funciona (3 min)",
@@ -21,7 +21,7 @@
   "ONB_002_CTA_SECONDARY": "Ver diferencias",
   "ONB_002_HELPER": "Por lote reduce carga de registro y acelera el Go-Live.",
   "ONB_003_TITLE": "Selecciona tu stack digital",
-  "ONB_003_BODY": "Este plan está optimizado para Google.",
+  "ONB_003_BODY": "Para automatizar la creación de carpetas y documentos, necesitamos conectar con tu Google Drive.\\n\\nInstrucciones para obtener tus credenciales (si eres administrador):\\n1. Ve a Google Cloud Console y crea un nuevo proyecto.\\n2. Habilita la 'Google Drive API'.\\n3. Configura la pantalla de consentimiento OAuth (User Type: External).\\n4. Crea credenciales de tipo 'OAuth Client ID'.\\n5. Añade la URL de esta app a 'Authorized redirect URIs'.\\n\\nUna vez conectado:\\n- La app creará la estructura de carpetas GACP en tu Drive.\\n- Se generarán las plantillas de procedimientos automáticamente.\\n\\nSi no eres administrador, solicita acceso al responsable del sistema.",
   "ONB_003_OPTION_GOOGLE": "Google Drive + Sheets + Forms",
   "ONB_003_CTA_PRIMARY": "Confirmar Google",
   "ONB_003_CTA_SECONDARY": "Cambiar más tarde",
