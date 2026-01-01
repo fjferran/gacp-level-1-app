@@ -4,6 +4,8 @@ import { t } from '@/lib/i18n';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { getCompletedScreens, markScreenAsCompleted, isScreenLocked } from '@/lib/progress';
+import DynamicInput from './DynamicInput';
+import es from '../../content/es.json';
 
 interface ScreenProps {
     screenId: string;
@@ -19,6 +21,17 @@ export default function Screen({ screenId }: ScreenProps) {
 
     const [isCompleted, setIsCompleted] = useState(false);
     const [locked, setLocked] = useState(false);
+
+    // Find fields for this screen
+    const fields = Object.keys(es).filter(key => key.startsWith(`${screenId}_FIELD_`) && key.endsWith('_LABEL')).map(key => {
+        const fieldBase = key.replace('_LABEL', '');
+        return {
+            key: fieldBase,
+            label: t(key),
+            placeholder: t(`${fieldBase}_PLACEHOLDER`),
+            required: true // Default to required for now
+        };
+    });
 
     useEffect(() => {
         const checkStatus = () => {
@@ -85,6 +98,21 @@ export default function Screen({ screenId }: ScreenProps) {
                                 <li key={idx}>{bullet}</li>
                             ))}
                         </ul>
+                    </div>
+                )}
+
+                {/* Dynamic Inputs */}
+                {fields.length > 0 && (
+                    <div className="mt-8 bg-white p-6 rounded-lg shadow-sm border border-gray-200 mx-auto max-w-lg">
+                        {fields.map(field => (
+                            <DynamicInput
+                                key={field.key}
+                                fieldKey={field.key}
+                                label={field.label}
+                                placeholder={field.placeholder}
+                                required={field.required}
+                            />
+                        ))}
                     </div>
                 )}
 

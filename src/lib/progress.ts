@@ -40,3 +40,19 @@ export function getProgressStats() {
     const count = Object.keys(completed).filter(k => completed[k] && SCREEN_ORDER.includes(k)).length;
     return { count, total, percent: Math.round((count / total) * 100) };
 }
+
+const FORM_STORAGE_KEY = 'gacp_form_data';
+
+export function getFormData(): Record<string, string> {
+    if (typeof window === 'undefined') return {};
+    const stored = localStorage.getItem(FORM_STORAGE_KEY);
+    return stored ? JSON.parse(stored) : {};
+}
+
+export function saveFormData(key: string, value: string) {
+    if (typeof window === 'undefined') return;
+    const current = getFormData();
+    const updated = { ...current, [key]: value };
+    localStorage.setItem(FORM_STORAGE_KEY, JSON.stringify(updated));
+    window.dispatchEvent(new Event('form-update'));
+}
