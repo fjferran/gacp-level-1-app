@@ -14,6 +14,13 @@ export const authOptions = {
         }),
     ],
     callbacks: {
+        async signIn({ user }: any) {
+            const allowedUsers = process.env.ALLOWED_USERS?.split(',') || [];
+            if (allowedUsers.length > 0 && user.email && !allowedUsers.includes(user.email)) {
+                return false; // Deny access
+            }
+            return true;
+        },
         async session({ session, token }: any) {
             session.accessToken = token.accessToken
             return session
