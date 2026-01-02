@@ -23,12 +23,15 @@ export default function LandingPage() {
                         <p className="mt-6 text-lg leading-8 text-gray-600">
                             La primera App diseñada para pequeños productores que quieren certificar su calidad sin gastar miles de euros en software complejo. Trazabilidad, auditorías y calidad en tu bolsillo.
                         </p>
-                        <div className="mt-10 flex items-center justify-center gap-x-6">
+                        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
                             <Link href="/roadmap" className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-indigo-600 shadow-sm ring-1 ring-inset ring-indigo-200 hover:bg-indigo-50">
                                 Ver Recorrido Gratuito
                             </Link>
+                            <Link href="/demo" className="rounded-md bg-green-50 px-3.5 py-2.5 text-sm font-semibold text-green-700 shadow-sm ring-1 ring-inset ring-green-200 hover:bg-green-100">
+                                ⚡ Simulador Rápido
+                            </Link>
                             <Link href="/screen/ONB_001" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                Acceso Completo (Usuarios Registrados)
+                                Acceso Completo
                             </Link>
                         </div>
                     </div>

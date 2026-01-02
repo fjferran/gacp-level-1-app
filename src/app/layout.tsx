@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import Providers from "@/components/Providers";
+import PWAInstallButton from "@/components/PWAInstallButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           {children}
+          <PWAInstallButton />
         </Providers>
         <Script id="register-sw" strategy="afterInteractive">
           {`
