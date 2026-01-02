@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { QRCodeSVG } from 'qrcode.react';
 
 export default function DemoPage() {
     const [step, setStep] = useState(1);
@@ -80,8 +81,8 @@ export default function DemoPage() {
                     {/* Step 2: QR Display */}
                     {step === 2 && (
                         <div className="text-center space-y-6">
-                            <div className="mx-auto h-48 w-48 bg-gray-200 flex items-center justify-center rounded-lg border-2 border-dashed border-gray-400">
-                                <span className="text-4xl">🏁 QR</span>
+                            <div className="mx-auto h-48 w-48 bg-white flex items-center justify-center rounded-lg border-2 border-dashed border-gray-400 p-2">
+                                <QRCodeSVG value={`https://gacp-app.com/register/${lotId}/${room}`} size={160} />
                             </div>
                             <div>
                                 <h3 className="text-lg font-medium text-gray-900">QR Generado para: {room}</h3>
